@@ -39,38 +39,48 @@
         <div class="slider-container">
           <p>GRID</p>
           <label class="switch">
-            <input type="checkbox" checked />
+            <input type="checkbox" checked id="gridToggle" />
             <span class="slider"></span>
           </label>
         </div>
       </div>
 
       <div class="button-container">
-        <input type="color" id="head" value="#119da4" class="btn-round" />
+        <input
+          type="color"
+          id="colorPicker"
+          value="#119da4"
+          class="btn-round" />
         <div class="toggle-container">
           <div class="slider-container">
             <p>COLOR</p>
             <label class="switch">
-              <input type="checkbox" checked />
+              <input
+                type="checkbox"
+                checked
+                name="colorToggle"
+                id="colorToggle" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="slider-container">
             <p>RAINBOW</p>
             <label class="switch">
-              <input type="checkbox" />
+              <input type="checkbox" name="rainbowToggle" id="rainbowToggle" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="slider-container">
             <p>ERASER</p>
             <label class="switch">
-              <input type="checkbox" />
+              <input type="checkbox" name="eraserToggle" id="eraserToggle" />
               <span class="slider round"></span>
             </label>
           </div>
         </div>
-        <button class="btn-round"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn-round" id="clearBtn">
+          <i class="fa-solid fa-trash"></i>
+        </button>
       </div>
     </main>
 
