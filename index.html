@@ -18,6 +18,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
 
+    <link rel="shortcut icon" href="brush.png" />
+
     <link rel="stylesheet" href="style.css  " />
     <script src="script.js" defer></script>
   </head>
@@ -26,41 +28,41 @@
       <div class="title">Etch a Sketch</div>
 
       <div class="grid-options">
-        <div class="lalala">
+        <div class="rotate-wrapper">
           <div class="range-wrapper">
             <input type="range" min="1" max="50" value="25" id="customRange" />
           </div>
           <div id="rangeValue">25 x 25</div>
         </div>
 
-        <div class="draw-window" id="containerDiv"></div>
-        <div class="slider-container" style="border: 1px solid red">
+        <div class="draw-window" id="drawWindow"></div>
+        <div class="slider-container">
           <p>GRID</p>
           <label class="switch">
             <input type="checkbox" checked />
-            <span class="slider round"></span>
+            <span class="slider"></span>
           </label>
         </div>
       </div>
 
-      <div class="button-container" style="border: 1px solid red">
-        <input type="color" id="head" value="#e66465" class="btn-round" />
+      <div class="button-container">
+        <input type="color" id="head" value="#119da4" class="btn-round" />
         <div class="toggle-container">
-          <div class="slider-container" style="border: 1px solid red">
+          <div class="slider-container">
             <p>COLOR</p>
             <label class="switch">
               <input type="checkbox" checked />
               <span class="slider round"></span>
             </label>
           </div>
-          <div class="slider-container" style="border: 1px solid red">
+          <div class="slider-container">
             <p>RAINBOW</p>
             <label class="switch">
               <input type="checkbox" />
               <span class="slider round"></span>
             </label>
           </div>
-          <div class="slider-container" style="border: 1px solid red">
+          <div class="slider-container">
             <p>ERASER</p>
             <label class="switch">
               <input type="checkbox" />
@@ -71,5 +73,18 @@
         <button class="btn-round"><i class="fa-solid fa-trash"></i></button>
       </div>
     </main>
+
+    <footer class="footer">
+      <p>
+        Copyright <i class="fa-regular fa-copyright"></i>
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Marko Soldo
+        <a href="https://github.com/markosoldo" target="_blank"
+          ><i class="fa-brands fa-github github-link"></i
+        ></a>
+      </p>
+    </footer>
   </body>
 </html>

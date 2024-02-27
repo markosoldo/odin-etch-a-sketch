@@ -1,16 +1,16 @@
 const numGridElements = 25;
 
-const containerDiv = document.getElementById("containerDiv");
+const drawWindow = document.querySelector("#drawWindow");
 
 for (let i = 0; i < numGridElements; i++)
   for (j = 0; j < numGridElements; j++) {
     const newDiv = document.createElement("div");
-    newDiv.classList.add("test-border");
+    newDiv.classList.add("grid-border");
 
-    containerDiv.appendChild(newDiv);
+    drawWindow.appendChild(newDiv);
   }
 
-const children = containerDiv.children;
+const children = drawWindow.children;
 
 const flexBasis = 100 / numGridElements;
 
@@ -26,18 +26,17 @@ customRange.addEventListener("input", handleRange);
 function handleRange() {
   rangeValue.innerHTML = customRange.value + " X " + customRange.value;
 
-  while (containerDiv.firstChild)
-    containerDiv.removeChild(containerDiv.firstChild);
+  while (drawWindow.firstChild) drawWindow.removeChild(drawWindow.firstChild);
 
   for (let i = 0; i < customRange.value; i++)
     for (j = 0; j < customRange.value; j++) {
       const newDiv = document.createElement("div");
-      newDiv.classList.add("test-border");
+      newDiv.classList.add("grid-border");
 
-      containerDiv.appendChild(newDiv);
+      drawWindow.appendChild(newDiv);
     }
 
-  const children = containerDiv.children;
+  const children = drawWindow.children;
 
   const flexBasis = 100 / customRange.value;
 

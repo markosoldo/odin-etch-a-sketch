@@ -3,12 +3,8 @@
   --light: rgb(224, 224, 224);
   --dark: rgb(86, 86, 86);
 
+  --border-dark: rgb(0, 0, 0);
   --btn: rgb(17, 157, 164);
-
-  --btn-hover: rgb(116, 166, 49, 0.5);
-  --btn-active: rgb(134, 194, 50, 0.5);
-  --title: rgb(134, 194, 50);
-  --title-bckg: rgb(221, 221, 221, 0.1);
 }
 
 *,
@@ -20,20 +16,27 @@
 }
 
 body {
+  padding-top: 10px;
   background-image: url(./img/45degreee_fabric.png);
   background-color: var(--bckgrnd);
   color: var(--light);
   min-height: 100vh;
   font-family: Roboto, sans-serif;
+  /* Footer support */
+  position: relative;
+}
+
+.grid-border {
+  border: 1px solid var(--light);
 }
 
 .container {
-  max-width: 800px;
-  margin: 10px auto 10px;
+  max-width: 850px;
+  margin: 0px auto 10px;
   border-radius: 35px;
   background-image: url(./img/tweed.png);
   background-color: var(--dark);
-  box-shadow: 0 0 50px rgba(0, 0, 0);
+  box-shadow: 0 0 50px var(--border-dark);
 }
 
 .title {
@@ -49,8 +52,56 @@ body {
   align-items: center;
 }
 
-.toggle-container {
+/* --- Custom range --- */
+.rotate-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 75px;
+  font-weight: 700;
+}
+
+.range-wrapper {
+  margin: 0 10px;
+  width: 75px;
+  height: 100px;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 25px;
+  width: 200px;
+  background-color: var(--light);
+  border-radius: 5px;
+  border: 1px solid var(--border-dark);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--btn);
+  height: 40px;
+  width: 25px;
+  border-radius: 5px;
+  border: 1px solid var(--border-dark);
+}
+/* -------------------- */
+
+.draw-window {
+  aspect-ratio: 1/1;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  border: 1px solid var(--border-dark);
 }
 
 .slider-container {
@@ -63,121 +114,11 @@ body {
   font-weight: 700;
 }
 
-/* Custom range */
-
-.range-wrapper {
-  margin: 0 10px;
-  width: 75px;
-  height: 100px;
-  transform: rotate(-90deg);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lalala {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 75px;
-  font-weight: 700;
-}
-
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 25px;
-  width: 200px;
-  background-color: var(--light);
-  border-radius: 5px;
-  border: 1px solid black;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: var(--btn);
-  height: 40px;
-  width: 25px;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-.slider-value {
-  transform: rotate(90deg);
-}
-
-/* Custom range end */
-
-.draw-window {
-  aspect-ratio: 1/1;
-  background-color: white;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  flex-grow: 1;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin: 10px;
-  padding: 10px;
-}
-
-button,
-input[type="color"] {
-  transition: transform 0.1s ease-in-out;
-}
-
-button:hover,
-input[type="color"]:hover {
-  transform: scale(1.1);
-}
-
-input[type="color"]:active {
-  transition: transform 0.05s ease-in-out;
-  transform: scale(1);
-}
-
-input[type="color"] {
-  -webkit-appearance: none;
-  width: 75px;
-  height: 75px;
-  border: none;
-}
-
-input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-input[type="color"]::-webkit-color-swatch {
-  border: none;
-  border-radius: 50px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.btn-round {
-  border-radius: 50%;
-  height: 75px;
-  width: 75px;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-}
-
-.test-border {
-  border: 0.1px solid var(--light);
-}
-
-/* Sliders */
+/* --- Custom toggle slider --- */
 .switch {
   position: relative;
   display: inline-block;
-  width: 34px;
+  width: 25px;
   height: 60px;
 }
 
@@ -195,6 +136,9 @@ input[type="color"]::-webkit-color-swatch {
   right: 0;
   bottom: 0;
   background-color: var(--light);
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 0 3px var(--border-dark);
+  border-radius: 5px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -202,36 +146,104 @@ input[type="color"]::-webkit-color-swatch {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
+  height: 25px;
+  width: 40px;
+  left: -8px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--btn);
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 0 2px var(--border-dark);
+  border-radius: 5px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #119da4;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #119da4;
+  background-color: var(--btn);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
+  -webkit-transform: translateY(-26px);
+  -ms-transform: translateY(-26px);
   transform: translateY(-26px);
+  background-color: var(--light);
+}
+/* ---------------------------- */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 10px;
+  padding: 10px;
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+.toggle-container {
+  display: flex;
 }
 
-.slider.round:before {
+/* -- Color picker -- */
+button,
+input[type="color"] {
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover,
+input[type="color"]:hover {
+  transform: scale(1.1);
+}
+
+button:active,
+input[type="color"]:active {
+  transition: transform 0.05s ease-in-out;
+  transform: scale(1);
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 85px;
+  height: 85px;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50px;
+}
+/* ------------------ */
+
+.btn-round {
   border-radius: 50%;
+  height: 85px;
+  width: 85px;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--border-dark);
+  color: var(--dark);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: var(--dark);
+}
+
+.github-link {
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--light);
 }
 
 @supports not (aspect-ratio: 1 / 1) {
