@@ -1,0 +1,249 @@
+:root {
+  --bckgrnd: rgb(227, 227, 228);
+  --light: rgb(224, 224, 224);
+  --dark: rgb(86, 86, 86);
+
+  --btn: rgb(17, 157, 164);
+
+  --btn-hover: rgb(116, 166, 49, 0.5);
+  --btn-active: rgb(134, 194, 50, 0.5);
+  --title: rgb(134, 194, 50);
+  --title-bckg: rgb(221, 221, 221, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./img/45degreee_fabric.png);
+  background-color: var(--bckgrnd);
+  color: var(--light);
+  min-height: 100vh;
+  font-family: Roboto, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 10px auto 10px;
+  border-radius: 35px;
+  background-image: url(./img/tweed.png);
+  background-color: var(--dark);
+  box-shadow: 0 0 50px rgba(0, 0, 0);
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  font-family: "Bungee Shade", sans-serif;
+  font-size: 2rem;
+  color: var(--light);
+}
+
+.grid-options {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-container {
+  display: flex;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 10px;
+  min-width: 75px;
+  font-weight: 700;
+}
+
+/* Custom range */
+
+.range-wrapper {
+  margin: 0 10px;
+  width: 75px;
+  height: 100px;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lalala {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 75px;
+  font-weight: 700;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 25px;
+  width: 200px;
+  background-color: var(--light);
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--btn);
+  height: 40px;
+  width: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.slider-value {
+  transform: rotate(90deg);
+}
+
+/* Custom range end */
+
+.draw-window {
+  aspect-ratio: 1/1;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 10px;
+  padding: 10px;
+}
+
+button,
+input[type="color"] {
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover,
+input[type="color"]:hover {
+  transform: scale(1.1);
+}
+
+input[type="color"]:active {
+  transition: transform 0.05s ease-in-out;
+  transform: scale(1);
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 75px;
+  height: 75px;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-round {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.test-border {
+  border: 0.1px solid var(--light);
+}
+
+/* Sliders */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 60px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #119da4;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #119da4;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateY(-26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .element::before {
+    float: left;
+    padding-top: 100%;
+    content: "";
+  }
+
+  .element::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
