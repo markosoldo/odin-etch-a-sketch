@@ -36,7 +36,6 @@ body {
 
 .container {
   max-width: 850px;
-  max-height: 850px;
   margin: 0px auto 10px;
   border-radius: 35px;
   background-image: url(./img/tweed.png);
@@ -46,7 +45,7 @@ body {
 
 .title {
   text-align: center;
-  padding: 20px;
+  max-height: 80px;
   font-family: "Bungee Shade", sans-serif;
   font-size: 2rem;
   color: var(--light);
